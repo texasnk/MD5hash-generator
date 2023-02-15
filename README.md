@@ -1,4 +1,4 @@
-#💻 MD5 Hash Generator
+# 💻 MD5 Hash Generator
 > Hash Generator is an app developed using C#, your main function is generating a hash utilizing strings.
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/texasnk/MD5hash-generator?style=for-the-badge)
