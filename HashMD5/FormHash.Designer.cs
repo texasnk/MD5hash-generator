@@ -30,24 +30,27 @@
         {
             this.txtInput = new System.Windows.Forms.TextBox();
             this.btnEncrypt = new System.Windows.Forms.Button();
-            this.txtOutput = new System.Windows.Forms.TextBox();
             this.btnCompare = new System.Windows.Forms.Button();
-            this.lblResult = new System.Windows.Forms.Label();
+            this.lbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblOutput = new System.Windows.Forms.Label();
+            this.btnCopy = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtInput
             // 
             this.txtInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInput.Location = new System.Drawing.Point(12, 12);
+            this.txtInput.Location = new System.Drawing.Point(12, 45);
             this.txtInput.Multiline = true;
             this.txtInput.Name = "txtInput";
-            this.txtInput.Size = new System.Drawing.Size(652, 191);
+            this.txtInput.Size = new System.Drawing.Size(652, 109);
             this.txtInput.TabIndex = 0;
+            this.txtInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInput_KeyPress);
             // 
             // btnEncrypt
             // 
             this.btnEncrypt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEncrypt.Location = new System.Drawing.Point(133, 406);
+            this.btnEncrypt.Location = new System.Drawing.Point(12, 160);
             this.btnEncrypt.Name = "btnEncrypt";
             this.btnEncrypt.Size = new System.Drawing.Size(203, 52);
             this.btnEncrypt.TabIndex = 1;
@@ -55,47 +58,72 @@
             this.btnEncrypt.UseVisualStyleBackColor = true;
             this.btnEncrypt.Click += new System.EventHandler(this.btnEncrypt_Click);
             // 
-            // txtOutput
-            // 
-            this.txtOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOutput.Location = new System.Drawing.Point(12, 209);
-            this.txtOutput.Multiline = true;
-            this.txtOutput.Name = "txtOutput";
-            this.txtOutput.Size = new System.Drawing.Size(652, 191);
-            this.txtOutput.TabIndex = 2;
-            // 
             // btnCompare
             // 
             this.btnCompare.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompare.Location = new System.Drawing.Point(342, 406);
+            this.btnCompare.Location = new System.Drawing.Point(221, 160);
             this.btnCompare.Name = "btnCompare";
             this.btnCompare.Size = new System.Drawing.Size(203, 52);
             this.btnCompare.TabIndex = 3;
+            this.btnCompare.Tag = "";
             this.btnCompare.Text = "Compare";
             this.btnCompare.UseVisualStyleBackColor = true;
             this.btnCompare.Click += new System.EventHandler(this.btnCompare_Click);
             // 
-            // lblResult
+            // lbl
             // 
-            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResult.Location = new System.Drawing.Point(133, 473);
-            this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(412, 96);
-            this.lblResult.TabIndex = 4;
-            this.lblResult.Text = "Result";
-            this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl.Location = new System.Drawing.Point(7, 9);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(80, 33);
+            this.lbl.TabIndex = 5;
+            this.lbl.Text = "String";
+            this.lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // Form1
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(7, 221);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 33);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Result";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblOutput
+            // 
+            this.lblOutput.BackColor = System.Drawing.SystemColors.Window;
+            this.lblOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOutput.Location = new System.Drawing.Point(12, 254);
+            this.lblOutput.Name = "lblOutput";
+            this.lblOutput.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lblOutput.Size = new System.Drawing.Size(652, 146);
+            this.lblOutput.TabIndex = 7;
+            // 
+            // btnCopy
+            // 
+            this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopy.Location = new System.Drawing.Point(12, 403);
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(110, 28);
+            this.btnCopy.TabIndex = 8;
+            this.btnCopy.Text = "Copy";
+            this.btnCopy.UseVisualStyleBackColor = true;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
+            // 
+            // FormHash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(676, 590);
-            this.Controls.Add(this.lblResult);
+            this.ClientSize = new System.Drawing.Size(676, 462);
+            this.Controls.Add(this.btnCopy);
+            this.Controls.Add(this.lblOutput);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl);
             this.Controls.Add(this.btnCompare);
-            this.Controls.Add(this.txtOutput);
             this.Controls.Add(this.btnEncrypt);
             this.Controls.Add(this.txtInput);
-            this.Name = "Form1";
+            this.Name = "FormHash";
             this.Text = "Hash Generator";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -106,9 +134,11 @@
 
         private System.Windows.Forms.TextBox txtInput;
         private System.Windows.Forms.Button btnEncrypt;
-        private System.Windows.Forms.TextBox txtOutput;
         private System.Windows.Forms.Button btnCompare;
-        private System.Windows.Forms.Label lblResult;
+        private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblOutput;
+        private System.Windows.Forms.Button btnCopy;
     }
 }
 

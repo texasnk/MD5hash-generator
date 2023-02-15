@@ -21,7 +21,7 @@ namespace HashMD5
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
             MD5 md5 = new MD5();
-            txtOutput.Text = md5.returnMD5(txtInput.Text);
+            lblOutput.Text = md5.returnMD5(txtInput.Text);
         }
 
         private void btnCompare_Click(object sender, EventArgs e)
@@ -34,14 +34,27 @@ namespace HashMD5
 
             if (res)
             {
-                lblResult.Text = "Same passwords";
+                lblOutput.Text = "Same passwords";
             }
             else
             {
-                lblResult.Text = "Different passwords";
+                lblOutput.Text = "Different passwords";
             }
 
         }
 
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lblOutput.Text);            
+            btnCopy.Text = "Copied!";
+            btnCopy.Enabled = false;
+        }
+
+        private void txtInput_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            btnCopy.Text = "Copy";
+            btnCopy.Enabled = true;
+
+        }
     }
 }
