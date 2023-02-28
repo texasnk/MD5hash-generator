@@ -1,5 +1,5 @@
 # 💻 MD5 Hash Generator
-> Hash Generator is an app developed using C#, your main function is generating a hash using strings.
+> This is a study project that uses MD5 Hash to encrypt strings. The repository contains a WinForms application that allows users to input a string and generate an MD5 Hash encrypted version of it.
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/texasnk/MD5hash-generator?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/top/texasnk/MD5hash-generator?style=for-the-badge)
